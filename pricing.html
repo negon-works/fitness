@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FITNESS - Pricing Plans</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom Tailwind Configuration */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#111111', 
+                        'accent': '#DD6B20', /* Burnt Orange */
+                        'bg-dark': '#000000',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+
+        /* Base styles */
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Inter', 'sans-serif';
+            min-height: 100vh;
+        }
+
+        /* --- RUNNING RGB BORDER ANIMATION FOR PREMIUM CARD --- */
+
+        /* 1. Keyframes for smooth, non-jumping 360-degree rotation */
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 2. Outer container for the gradient effect */
+        .premium-card {
+            border: none;
+            background-color: transparent;
+            position: relative;
+            overflow: hidden;
+            
+            /* Add a small outer border/padding to reveal the gradient underneath */
+            padding: 2px; 
+            border-radius: 0.75rem; /* rounded-xl */
+            
+            /* Enhanced shadow for a neon effect */
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.9); /* Stronger Blue-Violet glow */
+            transition: transform 0.3s;
+        }
+
+        /* 3. Pseudo-element to hold the large, rotating CONIC gradient */
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            /* Positioned far outside and large to ensure the gradient center is off-card */
+            top: -250%;
+            left: -250%;
+            width: 600%; 
+            height: 600%; 
+            
+            /* CONIC GRADIENT: Wraps colors 360 degrees for a perfect rotational flow */
+            background: conic-gradient(
+                from 0deg at 50% 50%, /* Start at the top, center point */
+                #FF0000, /* Red */
+                #FF7F00, /* Orange */
+                #FFFF00, /* Yellow */
+                #00FF00, /* Green */
+                #00FFFF, /* Cyan */
+                #0000FF, /* Blue */
+                #4B0082, /* Indigo */
+                #FF00FF, /* Magenta */
+                #FF0000  /* Red (Closing the loop smoothly) */
+            );
+            
+            /* No background-size property needed for conic gradients */
+            z-index: -1; 
+            opacity: 1; /* Ensure the colors are vibrant */
+            border-radius: inherit;
+            
+            /* Apply smooth, infinite rotation */
+            animation: rotate 6s linear infinite; 
+        }
+        
+        /* 4. Inner Wrapper to define the card's readable dark background */
+        .premium-content-wrapper {
+            background-color: #111111; /* primary-dark */
+            padding: 2rem; /* p-8 equivalent */
+            height: 100%;
+            width: 100%;
+            border-radius: 0.6rem; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        /* Custom styles for the middle card (Standard Plan) */
+        .standard-card {
+            background-color: #1a1a1a;
+            border: 2px solid #DD6B20;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="bg-bg-dark text-white antialiased">
+
+    <!-- Header (Matching existing design, simplified for standalone pricing page) -->
+    <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-sm shadow-lg">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-black tracking-widest uppercase hover:text-accent transition duration-200">FITNESS</a>
+
+            <div class="flex items-center space-x-8 text-sm font-semibold tracking-wider">
+                <!-- Simple navigation for a standalone page -->
+                <a href="index.html#home" class="hidden sm:inline hover:text-accent transition duration-200">HOME</a>
+                <a href="index.html#classes" class="hidden sm:inline hover:text-accent transition duration-200">CLASSES</a>
+                <a href="#" class="bg-accent border-2 border-orange-700 text-white px-5 py-2 rounded-lg font-bold transition duration-300 shadow-md">PRICING</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+        <h1 class="text-center text-4xl sm:text-5xl font-extrabold mb-16 tracking-wide uppercase">
+            MEMBERSHIP <span class="text-accent">PLANS</span>
+        </h1>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+            <!-- 1. BASIC PLAN -->
+            <div class="bg-primary-dark p-8 rounded-xl border-2 border-gray-700 shadow-xl flex flex-col items-center text-center transition duration-300 hover:scale-[1.02]">
+                <h2 class="text-2xl font-bold tracking-wider uppercase mb-2">BASIC PLAN</h2>
+                <p class="text-5xl font-extrabold text-accent mt-4 mb-2">$29</p>
+                <p class="text-gray-400 mb-8">/month</p>
+                
+                <ul class="text-left space-y-3 mb-10 w-full max-w-xs text-lg">
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Gym access
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        3 classes per week
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Free water bottle
+                    </li>
+                </ul>
+
+                <a id="basic-plan-btn" 
+                   data-plan="Basic Plan"
+                   class="w-full mt-auto bg-accent text-white px-8 py-3 rounded-lg font-bold tracking-wider hover:bg-orange-700 transition duration-300 cursor-pointer shadow-md">
+                    GET STARTED
+                </a>
+            </div>
+
+            <!-- 2. STANDARD PLAN (Featured) -->
+            <div class="standard-card p-8 rounded-xl shadow-2xl flex flex-col items-center text-center transition duration-300 transform scale-100 lg:scale-[1.05]">
+                
+                <!-- Badge -->
+                <div class="absolute top-0 right-0 -mr-2 -mt-2 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl shadow-lg transform rotate-3 z-10">
+                    MOST PURCHASED
+                </div>
+                
+                <h2 class="text-2xl font-bold tracking-wider uppercase mb-2 text-white">STANDARD PLAN</h2>
+                <p class="text-6xl font-extrabold text-white mt-4 mb-2">$49</p>
+                <p class="text-gray-300 mb-8">/month</p>
+
+                <ul class="text-left space-y-3 mb-10 w-full max-w-xs text-lg">
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Gym access
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        3 classes per week
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Access to sauna
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Personalized workout plans
+                    </li>
+                </ul>
+
+                <a id="standard-plan-btn"
+                   data-plan="Standard Plan"
+                   class="w-full mt-auto bg-white text-black px-8 py-3 rounded-lg font-extrabold tracking-wider hover:bg-gray-200 transition duration-300 cursor-pointer shadow-md">
+                    GET STARTED
+                </a>
+            </div>
+
+            <!-- 3. PREMIUM PLAN (Running RGB Border) -->
+            <div class="premium-card rounded-xl shadow-xl flex flex-col items-center text-center transition duration-300 hover:scale-[1.02]">
+                <!-- Inner Wrapper for content and dark background -->
+                <div class="premium-content-wrapper">
+                    <h2 class="text-2xl font-bold tracking-wider uppercase mb-2">PREMIUM PLAN</h2>
+                    <p class="text-5xl font-extrabold text-accent mt-4 mb-2">$69</p>
+                    <p class="text-gray-400 mb-8">/month</p>
+                    
+                    <ul class="text-left space-y-3 mb-10 w-full max-w-xs text-lg">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Gym access
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            5 classes per week
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Monthly massage
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Unlimited sauna access
+                        </li>
+                    </ul>
+
+                    <a id="premium-plan-btn"
+                       data-plan="Premium Plan"
+                       class="w-full mt-auto bg-accent text-white px-8 py-3 rounded-lg font-bold tracking-wider hover:bg-orange-700 transition duration-300 cursor-pointer shadow-md">
+                        GET STARTED
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Personal Training Add-on (Based on provided design) -->
+        <div class="bg-primary-dark p-8 mt-12 rounded-xl border-2 border-gray-700 shadow-xl flex flex-col md:flex-row items-center justify-between max-w-4xl mx-auto">
+            <div class="flex items-center mb-6 md:mb-0">
+                <div class="text-accent mr-6">
+                    <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="10" width="4" height="4" rx="1"/>
+                        <rect x="18" y="10" width="4" height="4" rx="1"/>
+                        <line x1="6" y1="12" x2="18" y2="12"/>
+                    </svg>
+                </div>
+                <div class="text-left">
+                    <h3 class="text-2xl font-bold tracking-wider uppercase text-accent">PERSONAL TRAINING ADD-ON</h3>
+                    <p class="text-gray-300">One-on-one sessions with a certified trainer.</p>
+                </div>
+            </div>
+            
+            <a id="addon-btn"
+               data-plan="Personal Training Add-on"
+               class="bg-accent text-white px-8 py-3 rounded-lg font-bold tracking-wider hover:bg-orange-700 transition duration-300 cursor-pointer shadow-md w-full md:w-auto text-center">
+                JOIN NOW
+            </a>
+        </div>
+
+
+    </main>
+
+    <footer class="bg-primary-dark border-t border-gray-800 mt-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500 text-sm">
+            &copy; 2025 FITNESS. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to handle WhatsApp redirect
+            const handleWhatsAppRedirect = (event) => {
+                event.preventDefault();
+                const planName = event.currentTarget.getAttribute('data-plan');
+                let message = `Hello, I'm interested in the ${planName}. Can you please provide more details on how to sign up?`;
+                
+                // Optional: Customize message based on the plan for better lead context
+                if (planName.includes("Basic")) {
+                    message = "I'm ready to get started with the Basic Plan!";
+                } else if (planName.includes("Standard")) {
+                    message = "I'm interested in your Standard Plan (the 'Most Purchased' one!) and want to sign up.";
+                } else if (planName.includes("Premium")) {
+                    message = "I'm interested in the Premium Plan, including the monthly massage. Let's talk!";
+                } else if (planName.includes("Personal Training")) {
+                    message = "I'd like to inquire about adding Personal Training sessions to my membership.";
+                }
+
+                // WhatsApp API URL encoding the message
+                const phoneNumber = 9074492286; // Replace with your actual phone number
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                
+                window.location.href = whatsappUrl;
+            };
+
+            // Attach listeners to all plan buttons
+            document.querySelectorAll('[data-plan]').forEach(button => {
+                button.addEventListener('click', handleWhatsAppRedirect);
+            });
+        });
+    </script>
+</body>
+</html>
