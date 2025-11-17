@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FITNESS - Build Your Body Strong</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Tailwind Configuration */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#111111',
+                        'accent': '#DD6B20',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+
+        /* Base styles */
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Inter', 'sans-serif';
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1.1;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+        }
+
+        /* 🚀 MOBILE STYLES (Default / Screens < 1024px) */
+        /* Make the image absolute, covering the entire hero section content space, and low opacity */
+        #hero-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /* Send the image behind the text (z-index: 10 is the text) */
+            z-index: 1; 
+            /* Ensure the text content is layered above the image */
+            opacity: 0.2; /* Low opacity for background effect */
+            object-fit: cover; /* Cover the whole area without stretching */
+        }
+        
+        /* 💡 DESKTOP STYLES (min-width: 1024px) - OVERRIDE MOBILE BACKGROUND STYLES */
+        @media (min-width: 1024px) {
+            
+            /* Apply max-width: 45rem specifically for large screens (lg) */
+            .lg\:max-w-lg-custom {
+                max-width: 45rem;
+            }
+            
+            /* Re-apply the specific desktop absolute positioning and style */
+            #hero-image {
+                position: absolute; /* Re-applied for clarity */
+                top: -55px;
+                left: 373px;
+                z-index: 10; /* Bring the focused image back to the top layer */
+                opacity: 1; /* Full opacity on desktop */
+                width: auto; /* Allow image to size naturally based on max-width */
+                height: auto;
+                object-fit: contain; /* Restore object-contain for the specific desktop look */
+            }
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-black text-white antialiased">
+
+    <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-sm shadow-lg">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-black tracking-widest uppercase">FITNESS</a>
+
+            <div class="hidden lg:flex items-center space-x-8 text-sm font-semibold tracking-wider">
+                <a href="#home" class="hover:text-accent transition duration-200">HOME</a>
+                <a href="#about" class="hover:text-accent transition duration-200">ABOUT</a>
+                <a href="#classes" class="hover:text-accent transition duration-200">CLASSES</a>
+                <a href="#contact" class="hover:text-accent transition duration-200">CONTACT</a>
+                <a href="pricing.html" class="bg-accent border-2 border-orange-700 text-white px-5 py-2 rounded-lg font-bold hover:bg-orange-700 transition duration-300 shadow-md">JOIN NOW</a>
+            </div>
+
+            <button id="mobile-menu-button" class="lg:hidden text-white focus:outline-none p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-primary-dark border-t border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-start">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-800 w-full">HOME</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-800 w-full">ABOUT</a>
+                <a href="#classes" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-800 w-full">CLASSES</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-800 w-full">CONTACT</a>
+                <a href="#" class="mt-2 text-center w-full bg-accent text-white px-5 py-2 rounded-lg border-2 border-orange font-bold hover:bg-orange-700 transition duration-300">JOIN NOW</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8">
+
+        <section id="home" class="pt-16 pb-24 grid md:grid-cols-2 gap-12 items-center min-h-[80vh] relative">
+            
+            <img src="bodybuilder.png"
+                id="hero-image"
+                alt="Muscular fitness model with a dumbbell"
+                class="lg:max-w-lg-custom transition duration-300 hover:opacity-90">
+
+            <div class="md:col-span-1 space-y-8 z-20 relative"> 
+                <h1 class="hero-title">
+                    BUILD YOUR <br>BODY STRONG
+                </h1>
+                <button class="text-white border-2 border-accent px-6 py-3 rounded-xl font-bold tracking-wider bg-orange-700 hover:bg-transparent transition duration-300 shadow-xl">
+                    GET STARTED
+                </button>
+            </div>
+
+            <div class="md:col-span-1 hidden lg:block"></div>
+        </section>
+
+        <section id="classes" class="py-24">
+            <h2 class="section-title mb-16">OUR CLASSES</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-primary-dark p-8 rounded-xl border border-gray-800 shadow-xl hover:shadow-accent/30 transition duration-300 transform hover:scale-[1.02]">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="text-accent">
+                            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="10" width="4" height="4" rx="1"/>
+                                <rect x="18" y="10" width="4" height="4" rx="1"/>
+                                <line x1="6" y1="12" x2="18" y2="12"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold tracking-wider uppercase">STRENGTH TRAINING</h3>
+                    </div>
+                    <p class="text-gray-400">Build muscle and increase power using heavy weight and bodyweight exercises.</p>
+                </div>
+
+                <div class="bg-primary-dark p-8 rounded-xl border border-gray-800 shadow-xl hover:shadow-accent/30 transition duration-300 transform hover:scale-[1.02]">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="text-accent">
+                            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 8h3l3 8 5-16 3 8h4"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold tracking-wider uppercase">CARDIO TRAINING</h3>
+                    </div>
+                    <p class="text-gray-400">Improve your endurance with high-intensity intervals and steady-state cardio classes.</p>
+                </div>
+
+                <div class="bg-primary-dark p-8 rounded-xl border border-gray-800 shadow-xl hover:shadow-accent/30 transition duration-300 transform hover:scale-[1.02]">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="text-accent">
+                            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="12" r="6"/>
+                                <circle cx="12" cy="12" r="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold tracking-wider uppercase">FITNESS TRAINING</h3>
+                    </div>
+                    <p class="text-gray-400">Achieve your long-term fitness goals with our expert coaches and personalized workout routines.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 grid md:grid-cols-2 gap-12 items-start">
+            <div class="md:col-span-1 space-y-10">
+                <h2 class="section-title">ABOUT US</h2>
+                <p class="text-gray-300 text-lg leading-relaxed">
+                    We are committed to helping you reach your fitness goals with our state-of-five art
+                    equipment, expert trainers, and supportive community. Our gym provides a dark, motivational,
+                    and focused environment designed for serious results.
+                </p>
+
+                <div class="space-y-4 pt-4">
+                    <h3 class="text-xl font-bold tracking-wider uppercase text-accent">OPENING HOURS</h3>
+                    <p class="text-lg text-gray-200">
+                        <span class="font-semibold w-24 inline-block">Mon - Fri:</span> 6:00 AM - 10:00 PM
+                    </p>
+                    <p class="text-lg text-gray-200">
+                        <span class="font-semibold w-24 inline-block">Sat - Sun:</span> 8:00 AM - 5:00 PM
+                    </p>
+                </div>
+            </div>
+
+            <div class="md:col-span-1 flex justify-center md:justify-start">
+                <div class="bg-primary-dark p-6 rounded-xl shadow-2xl w-full max-w-lg aspect-[5/3] flex items-center justify-center relative overflow-hidden">
+                    <img src="interior.png" alt="">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24">
+            <h2 class="section-title mb-12">CONTACT US</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-lg">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold tracking-wider uppercase text-accent">OUR LOCATION</h3>
+                    <p class="text-gray-200">123 Example St</p>
+                    <p class="text-gray-200">City, State 128545</p>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold tracking-wider uppercase text-accent">OPENING HOURS</h3>
+                    <p class="text-gray-200">
+                        <span class="font-semibold w-16 inline-block">Mon - Fri:</span> (123) 456-7890
+                    </p>
+                    <p class="text-gray-200">
+                        <span class="font-semibold w-16 inline-block">Sat - Sun:</span> (123) 456-7330
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold tracking-wider uppercase text-accent">PHONE US</h3>
+                    <p class="text-3xl font-extrabold text-white">(123) 456-7880</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-primary-dark border-t border-gray-800 mt-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500 text-sm">
+            &copy; 2025 FITNESS. All rights reserved. Built with pure HTML/CSS/JS.
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            const isHidden = menu.classList.toggle('hidden');
+            
+            // Close menu if a link is clicked
+            const links = menu.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!isHidden) { // Check if it was open when clicked
+                        menu.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
