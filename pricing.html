@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FITNESS - Pricing Plans</title>
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Custom Tailwind Configuration */
+
+    <!-- Tailwind Custom Config -->
+    <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'primary-dark': '#111111', 
-                        'accent': '#DD6B20', /* Burnt Orange */
+                        'primary-dark': '#111111',
+                        'accent': '#DD6B20',
                         'bg-dark': '#000000',
                     },
                     fontFamily: {
@@ -23,7 +24,15 @@
                 }
             }
         }
+    </script>
 
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+        rel="stylesheet"
+    />
+
+    <style>
         /* Base styles */
         body {
             background-color: #000000;
@@ -32,78 +41,60 @@
             min-height: 100vh;
         }
 
-        /* --- RUNNING RGB BORDER ANIMATION FOR PREMIUM CARD --- */
-
-        /* 1. Keyframes for smooth, non-jumping 360-degree rotation */
+        /* --- PREMIUM CARD RGB ROTATING BORDER --- */
         @keyframes rotate {
             to {
                 transform: rotate(360deg);
             }
         }
 
-        /* 2. Outer container for the gradient effect */
         .premium-card {
             border: none;
             background-color: transparent;
             position: relative;
             overflow: hidden;
-            
-            /* Add a small outer border/padding to reveal the gradient underneath */
-            padding: 2px; 
-            border-radius: 0.75rem; /* rounded-xl */
-            
-            /* Enhanced shadow for a neon effect */
-            box-shadow: 0 0 20px rgba(138, 43, 226, 0.9); /* Stronger Blue-Violet glow */
+            padding: 2px;
+            border-radius: 0.75rem;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.9);
             transition: transform 0.3s;
         }
 
-        /* 3. Pseudo-element to hold the large, rotating CONIC gradient */
         .premium-card::before {
             content: '';
             position: absolute;
-            /* Positioned far outside and large to ensure the gradient center is off-card */
             top: -250%;
             left: -250%;
-            width: 600%; 
-            height: 600%; 
-            
-            /* CONIC GRADIENT: Wraps colors 360 degrees for a perfect rotational flow */
+            width: 600%;
+            height: 600%;
             background: conic-gradient(
-                from 0deg at 50% 50%, /* Start at the top, center point */
-                #FF0000, /* Red */
-                #FF7F00, /* Orange */
-                #FFFF00, /* Yellow */
-                #00FF00, /* Green */
-                #00FFFF, /* Cyan */
-                #0000FF, /* Blue */
-                #4B0082, /* Indigo */
-                #FF00FF, /* Magenta */
-                #FF0000  /* Red (Closing the loop smoothly) */
+                #FF0000,
+                #FF7F00,
+                #FFFF00,
+                #00FF00,
+                #00FFFF,
+                #0000FF,
+                #4B0082,
+                #FF00FF,
+                #FF0000
             );
-            
-            /* No background-size property needed for conic gradients */
-            z-index: -1; 
-            opacity: 1; /* Ensure the colors are vibrant */
+            z-index: -1;
+            opacity: 1;
             border-radius: inherit;
-            
-            /* Apply smooth, infinite rotation */
-            animation: rotate 6s linear infinite; 
+            animation: rotate 6s linear infinite;
         }
-        
-        /* 4. Inner Wrapper to define the card's readable dark background */
+
         .premium-content-wrapper {
-            background-color: #111111; /* primary-dark */
-            padding: 2rem; /* p-8 equivalent */
+            background-color: #111111;
+            padding: 2rem;
             height: 100%;
             width: 100%;
-            border-radius: 0.6rem; 
+            border-radius: 0.6rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
         }
-        
-        /* Custom styles for the middle card (Standard Plan) */
+
         .standard-card {
             background-color: #1a1a1a;
             border: 2px solid #DD6B20;
@@ -111,6 +102,7 @@
         }
     </style>
 </head>
+
 <body class="bg-bg-dark text-white antialiased">
 
     <!-- Header (Matching existing design, simplified for standalone pricing page) -->
@@ -289,7 +281,7 @@
                 }
 
                 // WhatsApp API URL encoding the message
-                const phoneNumber = 9074492286; // Replace with your actual phone number
+                const phoneNumber = "9074492286"; // Replace with your actual phone number
                 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                 
                 window.location.href = whatsappUrl;

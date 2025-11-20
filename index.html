@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FITNESS - Build Your Body Strong</title>
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <style>
-        /* Custom Tailwind Configuration */
+
+    <!-- Tailwind Config -->
+    <script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -21,19 +23,29 @@
                 }
             }
         }
+    </script>
 
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+        rel="stylesheet"
+    />
+
+    <style>
         /* Base styles */
         body {
             background-color: #000000;
             color: #ffffff;
             font-family: 'Inter', 'sans-serif';
         }
+
         .section-title {
             font-size: 2.5rem;
             font-weight: 900;
             letter-spacing: 0.1em;
             text-transform: uppercase;
         }
+
         .hero-title {
             font-size: clamp(2.5rem, 8vw, 4.5rem);
             line-height: 1.1;
@@ -41,44 +53,40 @@
             letter-spacing: 0.05em;
         }
 
-        /* 🚀 MOBILE STYLES (Default / Screens < 1024px) */
-        /* Make the image absolute, covering the entire hero section content space, and low opacity */
+        /* MOBILE (default) */
         #hero-image {
             position: absolute;
             width: 100%;
             height: 100%;
-            /* Send the image behind the text (z-index: 10 is the text) */
-            z-index: 1; 
-            /* Ensure the text content is layered above the image */
-            opacity: 0.2; /* Low opacity for background effect */
-            object-fit: cover; /* Cover the whole area without stretching */
+            z-index: 1;
+            opacity: 0.2;
+            object-fit: cover;
         }
-        
-        /* 💡 DESKTOP STYLES (min-width: 1024px) - OVERRIDE MOBILE BACKGROUND STYLES */
+
+        /* DESKTOP */
         @media (min-width: 1024px) {
-            
-            /* Apply max-width: 45rem specifically for large screens (lg) */
             .lg\:max-w-lg-custom {
                 max-width: 45rem;
             }
-            
-            /* Re-apply the specific desktop absolute positioning and style */
+
             #hero-image {
-                position: absolute; /* Re-applied for clarity */
+                position: absolute;
                 top: -55px;
                 left: 373px;
-                z-index: 10; /* Bring the focused image back to the top layer */
-                opacity: 1; /* Full opacity on desktop */
-                width: auto; /* Allow image to size naturally based on max-width */
+                z-index: 10;
+                opacity: 1;
+                width: auto;
                 height: auto;
-                object-fit: contain; /* Restore object-contain for the specific desktop look */
+                object-fit: contain;
             }
         }
-        html{
+
+        html {
             scroll-behavior: smooth;
         }
     </style>
 </head>
+
 <body class="bg-black text-white antialiased">
 
     <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-sm shadow-lg">
@@ -90,7 +98,7 @@
                 <a href="#about" class="hover:text-accent transition duration-200">ABOUT</a>
                 <a href="#classes" class="hover:text-accent transition duration-200">CLASSES</a>
                 <a href="#contact" class="hover:text-accent transition duration-200">CONTACT</a>
-                <a href="pricing.html" class="bg-accent border-2 border-orange-700 text-white px-5 py-2 rounded-lg font-bold hover:bg-orange-700 transition duration-300 shadow-md">JOIN NOW</a>
+                <a href="pricing.html" class="bg-accent  text-white px-5 py-2 rounded-lg font-bold hover:bg-orange-700 transition duration-300 shadow-md">JOIN NOW</a>
             </div>
 
             <button id="mobile-menu-button" class="lg:hidden text-white focus:outline-none p-2">
@@ -122,7 +130,7 @@
                 <h1 class="hero-title">
                     BUILD YOUR <br>BODY STRONG
                 </h1>
-                <a href="pricing.html" class="text-white border-2 border-accent px-6 py-3 rounded-xl font-bold tracking-wider bg-orange-700 hover:bg-transparent transition duration-300 shadow-xl inline-block text-center">
+                <a href="pricing.html" class="text-white border-2 border-accent px-6 py-3 rounded-xl font-bold tracking-wider bg-transparent hover:bg-orange-700 transition duration-300 shadow-xl inline-block text-center">
                     GET STARTED
                 </a>
             </div>
