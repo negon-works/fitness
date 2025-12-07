@@ -284,7 +284,7 @@
                 const phoneNumber = "9074492286"; // Replace with your actual phone number
                 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                 
-                window.location.href = whatsappUrl;
+                window.open(whatsappUrl, "_blank");
             };
 
             // Attach listeners to all plan buttons
@@ -294,4 +294,5 @@
         });
     </script>
 </body>
+
 </html>
